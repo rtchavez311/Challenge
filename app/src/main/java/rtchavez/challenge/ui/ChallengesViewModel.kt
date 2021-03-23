@@ -1,5 +1,6 @@
 package rtchavez.challenge.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,6 +14,7 @@ import rtchavez.challenge.data.repository.ChallengeRepository
 class ChallengesViewModel(private val repository: ChallengeRepository) : ViewModel() {
 
     val results: MutableLiveData<Data<Upcoming>> = MutableLiveData()
+    val clickedUrl: LiveData<String> = MutableLiveData()
 
     fun loadUpcomingData() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -21,6 +23,10 @@ class ChallengesViewModel(private val repository: ChallengeRepository) : ViewMod
                 results.value = data
             }
         }
+    }
+
+    fun onUrlClicked(url: String) {
+        (clickedUrl as MutableLiveData).postValue(url)
     }
 
 }

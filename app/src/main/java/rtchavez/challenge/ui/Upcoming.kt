@@ -9,7 +9,7 @@ import rtchavez.challenge.R
 import rtchavez.challenge.data.model.Upcoming
 import rtchavez.challenge.databinding.UpcomingListItemBinding
 
-class UpcomingDetailAdapter() : RecyclerView.Adapter<UpcomingDetailViewHolder>() {
+class UpcomingDetailAdapter(private val viewModel: ChallengesViewModel) : RecyclerView.Adapter<UpcomingDetailViewHolder>() {
 
     var results: List<Upcoming> = emptyList()
         set(value) {
@@ -42,6 +42,8 @@ class UpcomingDetailAdapter() : RecyclerView.Adapter<UpcomingDetailViewHolder>()
                 Glide.with(root.context)
                     .load(result.icon)//.apply(RequestOptions().fitCenter().circleCrop())
                     .into(upcomingIcon)
+
+                root.setOnClickListener { viewModel.onUrlClicked(result.url) }
             }
         }
     }
