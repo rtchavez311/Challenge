@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
+    android:paddingTop="@dimen/normal_padding"
+    android:paddingBottom="@dimen/normal_padding">
+
+    <ImageView
+        android:id="@+id/upcoming_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/upcoming_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:textAlignment="viewStart"
+        android:textAppearance="?textAppearanceListItem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/upcoming_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="upcoming_name" />
+
+    <TextView
+        android:id="@+id/upcoming_venue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:textAlignment="viewStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/upcoming_name"
+        app:layout_constraintTop_toBottomOf="@id/upcoming_name"
+        tools:text="upcoming_venue" />
+
+    <TextView
+        android:id="@+id/upcoming_dates"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/upcoming_name"
+        app:layout_constraintTop_toBottomOf="@id/upcoming_venue"
+        tools:text="upcoming_dates" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
